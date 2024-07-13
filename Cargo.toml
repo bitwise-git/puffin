@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["puffin", "puffin_egui", "puffin_http", "puffin_viewer"]
+members = ["puffin", "puffin_egui", "puffin_http"]
 
 [workspace.lints.rust]
 future_incompatible = "warn"

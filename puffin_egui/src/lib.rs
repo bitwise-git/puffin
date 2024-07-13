@@ -710,8 +710,10 @@ impl ProfilerUi {
                 // preview when hovering is really annoying when viewing multiple frames
                 if is_hovered && !is_selected && !viewing_multiple_frames {
                     *hovered_frame = Some(frame.clone());
+                    let ctx = ui.ctx();
                     egui::show_tooltip_at_pointer(
-                        ui.ctx(),
+                        ctx,
+                        ctx.top_layer_id().unwrap_or(LayerId::debug()),
                         Id::new("puffin_frame_tooltip"),
                         |ui| {
                             ui.label(format!("{:.1} ms", frame.duration_ns() as f64 * 1e-6));
